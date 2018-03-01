@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<control xmlns:def="Definition" xmlns="http://schemas.sitecore.net/Visual-Studio-Intellisense">
+  <Sitecore.Shell.Applications.Dialogs.DeleteContent>
+    <FormDialog Icon="WordProcessing/32x32/line_spacing_h.png" Header="Delete Content Items" TextCssClass="scDialogTextWithPadding"
+      Text="Delete child content items">
+      <CodeBeside Type="Sitecore.Foundation.SitecoreExtensions.CustomForms.DeleteDatasourceChildrenForm, Sitecore.Foundation.SitecoreExtensions"/>
+      <Stylesheet Src="/sitecore/shell/Applications/Dialogs/DeleteContent/DeleteContent.css" DeviceDependant="false" />
+      <Script Src="/sitecore/shell/Controls/Lib/scriptaculous/scriptaculous.js?load=effects,dragdrop"></Script>
+      <Script Src="/sitecore/shell/Applications/Dialogs/DeleteContent/DeleteContent.js" />
+      <GridPanel Class="main-grid" Columns="2" GridPanel.Height="100%" Width="100%" Height="100%">
+        <Scrollbox Border="0" Padding="0" Class="scScrollbox scFixSize" Height="100%" Width="100%" GridPanel.Height="100%" ID="MainContainer">
+          <div style="text-align:center;margin-top:16px;">
+            <Literal Text="There should be at least one content item to enable deleting." />         
+          </div>    
+        </Scrollbox>
+        
+        <Border Class="commands-container" GridPanel.Class="commands-cell" GridPanel.VAlign="top">
+		  <Border>
+            <Button ID="Delete" Click="javascript:scDelete()" Disabled="false" Header="Delete"/>
+          </Border>          
+        </Border>
+      </GridPanel>    
+    </FormDialog>
+  </Sitecore.Shell.Applications.Dialogs.DeleteContent>
+</control>
