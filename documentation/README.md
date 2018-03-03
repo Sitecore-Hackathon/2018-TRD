@@ -1,4 +1,4 @@
-#Sitecore Similar Image Search
+# Sitecore Similar Image Search
 ## Installation Manual
 
 1. You will need to have SXA 1.5 or 1.6 Installed on your Sitecore instance
