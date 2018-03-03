@@ -8,6 +8,7 @@
         public void Configure(IServiceCollection serviceCollection)
         {
             serviceCollection.AddMvcControllers("*.Feature.*");
+            serviceCollection.AddMvcControllers("SCHackathon.*");
             serviceCollection.AddClassesWithServiceAttribute("*.Feature.*");
             serviceCollection.AddClassesWithServiceAttribute("*.Foundation.*");
         }

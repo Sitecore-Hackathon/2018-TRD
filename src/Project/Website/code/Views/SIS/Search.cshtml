@@ -1,0 +1,43 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<SCH.Project.Web.Models.SISViewModel>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+@using (Html.BeginForm("Search", "SIS", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <br />
+    <input type="file" name="file" id="file" />
+    <input type="hidden" value="1" name="pageNo" id="pageNo" />
+    <input type="hidden" value="@RenderingContext.Current.Rendering.Id" name="renderingId" id="renderingId" />
+    <input type="submit" value="Search" />
+    <br />
+
+    if (Model != null)
+    {
+        if (Model.Count() == 0)
+        {
+            <h3 class="text-error">No items matched your search query!</h3>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <div>@item.ImageTitle</div>
+                <img id="@item.ImageId.ToString()" src="@item.URL" />
+                <span>@item.AltText</span>
+                <span>@item.Description</span>
+                <span>@item.Size</span>
+            }
+
+            @Html.PagedListPager(Model, pageNo => Url.Action("Search", new
+            {
+                pageNo
+            }));
+
+        }
+    }
+}
+
