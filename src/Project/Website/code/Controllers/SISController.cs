@@ -35,7 +35,8 @@ namespace SCH.Project.Web.Controllers
             }
             else if (Session["SIS_fileStream"] != null)
             {
-                pageNo = int.Parse(Session["SIS_pageNo"].ToString());
+                if (pageNo < 1)
+                    pageNo = int.Parse(Session["SIS_pageNo"].ToString());
                 stream = (System.IO.Stream)Session["SIS_fileStream"];
             }
 
@@ -53,6 +54,7 @@ namespace SCH.Project.Web.Controllers
             catch (Exception e)
             {
                 // handle exception
+                Session["SIS_fileStream"] = null;
                 return Content("Error: " + e.Message);
             }
         }
