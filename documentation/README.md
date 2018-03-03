@@ -1,71 +1,14 @@
-# Documentation
+#Sitecore Similar Image Search
+## Installation Manual
 
-The documentation for this years Hackathon must be provided as a readme in Markdown format as part of your submission. 
-
-You can find a very good reference to Github flavoured markdown reference in [this cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet). If you want something a bit more WYSIWYG for editing then could use [StackEdit](https://stackedit.io/app) which provides a more user friendly interface for generating the Markdown code. Those of you who are [VS Code fans](https://code.visualstudio.com/docs/languages/markdown#_markdown-preview) can edit/preview directly in that interface too.
-
-Examples of things to include are the following.
-
-## Summary
-
-**Category:** Hackathon Category
-
-What is the purpose of your module? What problem does it solve and how does it do that?
-
-## Pre-requisites
-
-Does your module rely on other Sitecore modules or frameworks?
-
-- List any dependencies
-- Or other modules that must be installed
-- Or services that must be enabled/configured
-
-## Installation
-
-Provide detailed instructions on how to install the module, and include screenshots where necessary.
-
-1. Use the Sitecore Installation wizard to install the [package](#link-to-package)
-2. ???
-3. Profit
-
-## Configuration
-
-How do you configure your module once it is installed? Are there items that need to be updated with settings, or maybe config files need to have keys updated?
-
-Remember you are using Markdown, you can provide code samples too:
-
-```xml
-<?xml version="1.0"?>
-<!--
-  Purpose: Configuration settings for my hackathon module
--->
-<configuration xmlns:patch="http://www.sitecore.net/xmlconfig/">
-  <sitecore>
-    <settings>
-      <setting name="MyModule.Setting" value="Hackathon" />
-    </settings>
-  </sitecore>
-</configuration>
-```
-
-## Usage
-
-Provide documentation  about your module, how do the users use your module, where are things located, what do icons mean, are there any secret shortcuts etc.
-
-Please include screenshots where necessary. You can add images to the `./images` folder and then link to them from your documentation:
-
-![Hackathon Logo](images/hackathon.png?raw=true "Hackathon Logo")
-
-You can embed images of different formats too:
-
-![Deal With It](images/deal-with-it.gif?raw=true "Deal With It")
-
-And you can embed external images too:
-
-![Random](https://placeimg.com/480/240/any "Random")
-
-## Video
-
-Please provide a video highlighing your Hackathon module submission and provide a link to the video. Either a [direct link](https://www.youtube.com/watch?v=EpNhxW4pNKk) to the video, upload it to this documentation folder or maybe upload it to Youtube...
-
-[![Sitecore Hackathon Video Embedding Alt Text](https://img.youtube.com/vi/EpNhxW4pNKk/0.jpg)](https://www.youtube.com/watch?v=EpNhxW4pNKk)
+1. You will need to have SXA 1.5 or 1.6 Installed on your Sitecore instance
+2. Install Sitecore Similar Image Search (SIS) package which includes DLLs, configs, few templates, a rendering and a settings item
+3. Go to /sitecore/System/Settings/Feature/Similar Image Search/Indexing Settings and updated the 'Indexing Scope' field to the folder you want the crawler to crawler its content for images.
+4. Go to your SXA site, under /Presentation/Available Renderings/Search, include the new rendering (/sitecore/Layout/Renderings/Feature/Similar Image Search/Search Results) into the Renderings field.
+5. Duplicate your current instance's Sitecore_Master_Index core, delete the data folder and rename the folder and the name inside the core.properties into 'sch1_sis_master_index'
+6. Inside the core's config folder, open managed-schema and add a new field:
+<field name="sis_dom_table" type="string" indexed="true" stored="true"/>
+7. Save the and restart your Solr service
+8. Go back to Sitecore and rebuild the new Sitecore_sis_master_index
+9. Open the Experience Editor (SXA), add the 'Search Results' component from the new 'Similar Search Results' section
+10. You can now upload an image and get similar images by color dominance
