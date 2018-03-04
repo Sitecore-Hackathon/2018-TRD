@@ -1,7 +1,7 @@
 {
-  "name": "habitat",
+  "name": "SIS",
   "version": "1.0.0",
-  "description": "Sitecore Habitat Node Dependencies",
+  "description": "Similar Image Search",
   "main": "gulpfile.js",
   "dependencies": {
     "async": "^1.5.2",
@@ -39,9 +39,5 @@
     "url": "git+https://github.com/Sitecore/Habitat.git"
   },
   "author": "Sitecore Corporation A/S",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Sitecore/Habitat/issues"
-  },
-  "homepage": "https://github.com/Sitecore/Habitat#readme"
+  "license": "ISC"
 }
