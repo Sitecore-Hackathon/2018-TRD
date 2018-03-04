@@ -24,4 +24,4 @@ https://youtu.be/G-ZeS3NaPUo
 ### What Next:
 Due to the nature of Solr sorting, it didn't support retrieving images directly from Solr without having to cache them all in memory. However, we may be able to create custom java functions defined in Solr that hopefully code by used to get similar images.
 
-Add on custom parameters and variants to allow more flexible customizations and usage
+Add custom parameters and variants to allow more flexible customizations and usage
