@@ -16,7 +16,7 @@ Sitecore users will simply drag and drop the new Search Results (Similar Image S
 ![Settings](documentation/images/Settings.PNG?raw=true "Settings")
 Indexing will get all the image media items and extract meaningfull data about the dominant color of each quadrant of the image and store them into Solr. Indexing will time quite some time since some processing will occur on each image.
 
-#### Video:
+### Video:
 https://youtu.be/G-ZeS3NaPUo
 
 #### The module uses Color Dominance algorithm which is not very accurate but can help get images with similar color themes
